@@ -29,7 +29,7 @@ public class Main3Activity extends Activity {
         ruWord = (EditText) findViewById(R.id.ruWord);
         delButton = (Button) findViewById(R.id.deleteButton);
         saveButton = (Button) findViewById(R.id.saveButton);
-
+//получаем в editText значения из Main2Activity
         String Word_en = getIntent().getStringExtra("enWord");
         String Word_ru = getIntent().getStringExtra("ruWord");
       enWord.setText(Word_en);
@@ -56,8 +56,10 @@ public class Main3Activity extends Activity {
         }
     }
     public void save(View view) {
+     //проверяем ну пустоту editText
         if (enWord.getText().toString().length() > 0){
             ContentValues cv = new ContentValues();
+    //для добавления или обновления создаем объект ContentValues
         cv.put(DatabaseHelper.COLUMN_ENWORD, enWord.getText().toString());
         cv.put(DatabaseHelper.COLUMN_RUWORD, ruWord.getText().toString());
 
