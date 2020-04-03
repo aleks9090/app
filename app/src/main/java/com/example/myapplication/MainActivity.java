@@ -21,12 +21,14 @@ public class MainActivity extends Activity {
     Button post;
     String bearerToken;
     String apiKey = "MWE4MTlhNGYtYjA3Zi00NWEwLTg3ZDMtOTRiNzZhODU5NjFhOmI0ZjViNDdlZTllNzRjOTZhNjRhOGZhNzc3NjY2NGY1";
+    String mMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         post = (Button) findViewById(R.id.post);
+
     // создание метода обработки нажатия кнопки
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +59,15 @@ public class MainActivity extends Activity {
             // если ответа нет
             @Override
             public void onFailure(Call call, IOException e) {
-                String mMessage = e.getMessage().toString();
-                Toast.makeText(getBaseContext(),mMessage,Toast.LENGTH_SHORT).show();
+                mMessage = e.getMessage().toString();
+            // оборачиваем в UI поток Toast
+              runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getBaseContext(),mMessage,Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
             // если на запрос приходит успешный ответ
             @Override

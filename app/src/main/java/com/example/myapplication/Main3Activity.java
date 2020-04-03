@@ -1,7 +1,4 @@
 package com.example.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -19,7 +16,6 @@ public class Main3Activity extends Activity {
     EditText ruWord;
     Button delButton;
     Button saveButton;
-
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
     Cursor userCursor;
@@ -38,8 +34,7 @@ public class Main3Activity extends Activity {
         String Word_ru = getIntent().getStringExtra("ruWord");
       enWord.setText(Word_en);
       ruWord.setText(Word_ru);
-
-       sqlHelper = new DatabaseHelper(this);
+             sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
 
         Bundle extras = getIntent().getExtras();
@@ -60,7 +55,6 @@ public class Main3Activity extends Activity {
             delButton.setVisibility(View.GONE);
         }
     }
-
     public void save(View view) {
         if (enWord.getText().toString().length() > 0){
             ContentValues cv = new ContentValues();
@@ -74,7 +68,7 @@ public class Main3Activity extends Activity {
         }
         goHome();
     }else{
-            Toast.makeText(getBaseContext(),"Пожалуйста, напишите английское слово, которое хотите заполнить",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(),"Пожалуйста, напишите английское слово, которое хотите запомнить",Toast.LENGTH_LONG).show();
         }
     }
     public void delete(View view){
