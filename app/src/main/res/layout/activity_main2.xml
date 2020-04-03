@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="@drawable/b1">
+
+    <EditText
+        android:id="@+id/word"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edittextstyle"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawablePadding="15dp"
+        android:paddingLeft="10dp"
+         android:layout_marginTop="100dp"
+        android:textColor="#ffffff"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:ems="10"
+
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:textColor="#ffffff"
+        android:layout_below="@id/add"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:hint="translation field"
+        android:textSize="30sp"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/get"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+android:background="@drawable/btn_rectangle"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:text="перевести"
+        android:layout_below="@id/word"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/add"
+        android:layout_width="250dp"
+        android:onClick="add"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rectangle"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:text="сохранить"
+        android:layout_below="@id/get"
+        android:layout_centerHorizontal="true"
+        />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/answer"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        />
+
+
+
+</RelativeLayout>
